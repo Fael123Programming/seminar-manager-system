@@ -23,6 +23,14 @@ public class Teacher {
         return this.titration;
     }
 
+    public void setTitration(String newTitration) {
+        this.titration = newTitration;
+    }
+
+    public int getAge(){
+        return this.generalObject.getAge();
+    }
+
     @Override
     public String toString() {
         return this.generalObject.toString().substring(0, this.generalObject.toString().length()) + String.format(", \"titration\": \"%s\"}", this.titration);

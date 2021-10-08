@@ -36,6 +36,10 @@ public class Student {
         this.takingSeminar = newBoolValue;
     }
 
+    public int getAge(){
+        return this.generalObject.getAge();
+    }
+
     @Override
     public String toString(){
         return this.generalObject.toString().substring(0, this.generalObject.toString().length()) + String.format(", \"takingSeminar\":\"%b\"}",this.takingSeminar);

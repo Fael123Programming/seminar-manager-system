@@ -29,6 +29,14 @@ public class RegisteredPerson {
         return this.dateOfBirth;
     }
 
+    public int getAge() {
+        int age = LocalDate.now().getYear() - this.dateOfBirth.getYear();
+        if (LocalDate.now().isBefore(LocalDate.of(LocalDate.now().getYear(), this.dateOfBirth.getMonth().getValue(), this.dateOfBirth.getDayOfMonth()))) {
+            return --age; //RegisteredPerson did not complete their yearly new age yet.
+        }
+        return age;
+    }
+
     @Override
     public String toString() {
         return String.format("{\"name\":\"%s\", \"registration\":\"%s\", \"dateOfBirth\":\"%s\"", this.name, this.registration, this.dateOfBirth.toString());

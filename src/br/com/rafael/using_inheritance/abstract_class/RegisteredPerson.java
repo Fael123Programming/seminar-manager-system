@@ -17,17 +17,22 @@ public abstract class RegisteredPerson {
         this.dateOfBirth = dateOfBirth;
     }
 
-    //Getters and setters
     public String getName(){
         return this.name;
     }
 
-    public String getRegistration(){
-        return this.registration;
-    }
+    public String getRegistration(){ return this.registration; }
 
     public LocalDate getDateOfBirth(){
         return this.dateOfBirth;
+    }
+
+    public int getAge() {
+        int age = LocalDate.now().getYear() - this.dateOfBirth.getYear();
+        if (LocalDate.now().isBefore(LocalDate.of(LocalDate.now().getYear(), this.dateOfBirth.getMonth().getValue(), this.dateOfBirth.getDayOfMonth()))) {
+            return --age; //RegisteredPerson did not complete their yearly new age yet.
+        }
+        return age;
     }
 
     @Override
