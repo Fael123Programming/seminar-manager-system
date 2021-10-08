@@ -1,5 +1,7 @@
 package br.com.rafael.place;
 
+import java.util.Objects;
+
 public class Address {
     private String street, neighbourhood, city, state, country, complement;
     private int number;
@@ -69,5 +71,16 @@ public class Address {
         else result += "\"" + this.number + "\"";
         result += ", \"complement\": \"" + this.complement + "\"}";
         return result;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(this.street, this.neighbourhood, this.city, this.state, this.country);
+    }
+
+    @Override
+    public boolean equals(Object toCompare) {
+        if (!(toCompare instanceof Address casted)) return false;
+        return (this.toString().equals(casted.toString()));
     }
 }
