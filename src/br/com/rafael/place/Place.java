@@ -5,6 +5,8 @@ public class Place {
     private int capacity;
     private boolean reserved;
 
+    public Place(){}
+
     public Place(Address address, int capacity) {
         this.address = address;
         this.capacity = capacity;
@@ -23,6 +25,10 @@ public class Place {
         return this.reserved;
     }
 
+    public void setReserved(boolean newBoolValue) {
+        this.reserved = newBoolValue;
+    }
+
     public void setAddress(Address newAddress) throws IllegalArgumentException {
         if (newAddress == null) throw new IllegalArgumentException("Illegal Argument!");
         this.address = newAddress;
@@ -36,9 +42,5 @@ public class Place {
     @Override
     public String toString() {
         return "{" + this.address.toString().substring(0, this.address.toString().length()) + ", \"capacity\": \"" + this.capacity + "\"}";
-    }
-
-    public void setReserved(boolean newBoolValue) {
-        this.reserved = newBoolValue;
     }
 }
